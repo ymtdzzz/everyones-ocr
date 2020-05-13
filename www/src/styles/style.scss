@@ -33,20 +33,20 @@ RESPONSIVE
 
 // Small devices (landscape phones, 576px and up)
 @media only screen and (min-width: 576px) {
-    @import "breakpoints/576up";
+  @import "breakpoints/576up";
 }
 
 // Medium devices (tablets, 768px and up)
 @media only screen and (min-width: 768px) {
-    @import "breakpoints/768up";
+  @import "breakpoints/768up";
 }
 
 // Large devices (desktops, 992px and up)
 @media only screen and (min-width: 992px) {
-    @import "breakpoints/992up";
+  @import "breakpoints/992up";
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media only screen and (min-width: 1200px) {
-    @import "breakpoints/1200up";
+  @import "breakpoints/1200up";
 }
