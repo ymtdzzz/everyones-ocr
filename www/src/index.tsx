@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as wasm from "everyones-ocr";
+import './styles/main.scss'
 
 wasm.greet();
 

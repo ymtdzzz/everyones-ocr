@@ -1,5 +1,7 @@
 // const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require('path');
+const htmlWebpackPlugin = require("html-webpack-plugin");
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // entry: "./bootstrap.js",
@@ -11,14 +13,31 @@ module.exports = {
     filename: "bootstrap.js"
   },
   module: {
-    rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader"
+      },
+      {
+        test: [/\.css$/, /\.scss$/],
+        exclude: /node_modules/,
+        loader: [miniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader', 'sass-loader']
+      }
+    ]
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
   devServer: {
     contentBase: path.resolve(__dirname, "public")
-  }
+  },
+  plugins: [
+    new htmlWebpackPlugin({ template: './src/index.html' }),
+    new miniCssExtractPlugin({
+      publicPath: 'public',
+      filename: 'app.css',
+    }),
+  ]
   // mode: "development",
   // plugins: [
   //   new CopyWebpackPlugin(['index.html'])
