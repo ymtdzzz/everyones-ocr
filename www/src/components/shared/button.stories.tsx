@@ -9,6 +9,9 @@ import Button from './Button'
 storiesOf(StoryTypes.Shared, module)
   .add("Button", () => (
     <div>
-      <Button label='Button' theme='primary' />
+      <Button label='DOWNLOAD ALL' theme='primary' /><br />
+      <Button label='DOWNLOAD SELECTED' theme='primary' /><br />
+      <Button label='ADD IMAGES' theme='primary' /><br />
+      <Button label='CLEAR RESULTS' theme='danger' /><br />
     </div>
   ))

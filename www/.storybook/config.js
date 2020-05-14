@@ -1,5 +1,6 @@
 import { configure, addDecorator } from '@storybook/react';
 import React from 'react';
+import '!style-loader!css-loader!sass-loader!../src/styles/normalize.css';
 
 configure(
   () => {
