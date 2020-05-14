@@ -2,11 +2,11 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { StoryTypes } from '../../../types/storybook'
-import Header from './index'
+import Footer from './index'
 
 storiesOf(StoryTypes.App, module)
-  .add("Header", () => (
+  .add("Footer", () => (
     <div>
-      <Header />
+      <Footer />
     </div>
   ))

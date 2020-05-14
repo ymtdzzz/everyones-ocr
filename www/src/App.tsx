@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
-import Header from './components/app/header/index'
+import Title from './components/app/title/index'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -16,7 +16,7 @@ const App = () => {
     <React.Fragment>
       <GlobalStyle />
       <AppWrapper>
-        <Header />
+        <Title />
       </AppWrapper>
     </React.Fragment>
   )
