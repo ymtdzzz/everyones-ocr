@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Wrapper = styled.div``
+
 const DescriptionContainer = styled.p`
   color: white;
   font-size: 0.875rem;
@@ -24,7 +26,7 @@ const Body = styled.p`
 
 const Descriptions = () => {
   return (
-    <>
+    <Wrapper>
       <DescriptionContainer>
         <Title>Contributing</Title>
         <Body>
@@ -38,7 +40,7 @@ const Descriptions = () => {
         <Title>Author</Title>
         <Body><a href="https://github.com/zeroclock" target="_blank">@zeroclock</a></Body>
       </DescriptionContainer>
-    </>
+    </Wrapper>
   )
 }
 
