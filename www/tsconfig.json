@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es5",
     "module": "esNext",
     "lib": ["es2018", "dom"],
@@ -14,6 +15,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
+    "paths": {"import-svg": ["types/import-svg"]},
+    "typeRoots": ["types", "node_modules/@types"]
   },
   "include": [
     "src"

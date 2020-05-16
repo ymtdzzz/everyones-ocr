@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import{ linkTo } from '@storybook/addon-links'
 
-import { StoryTypes } from '../../types/storybook'
+import { StoryTypes } from '../../interfaces/storybook'
 import Button from './Button'
 
 storiesOf(StoryTypes.Shared, module)

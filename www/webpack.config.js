@@ -22,7 +22,18 @@ module.exports = {
         test: [/\.css$/, /\.scss$/],
         exclude: /node_modules/,
         loader: [miniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader', 'sass-loader']
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader"
+          }
+        ]
+      },
     ]
   },
   resolve: {
