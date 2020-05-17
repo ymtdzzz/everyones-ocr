@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CheckIcon from '../../assets/images/check-solid.svg'
+import media from 'styled-media-query'
 
 const Check = styled.div<{ checked: boolean }>`
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   box-sizing: border-box;
   border-radius: 100%;
-  padding: 12px;
+  padding: 8px;
+
   svg {
     color: white;
   }
+
   ${props => props.checked ? `
     background-color: #2699FB;
     svg {
@@ -22,6 +25,12 @@ const Check = styled.div<{ checked: boolean }>`
     svg {
       display: none;
     }
+  `}
+
+  ${media.greaterThan('large')`
+    width: 43px;
+    height: 43px;
+    padding: 12px
   `}
 `
 
