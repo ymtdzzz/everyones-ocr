@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 import Descriptions from './Descriptions'
 
 const FooterContainer = styled.div`
   padding: 1.25rem;
   background-color: #053055;
+
+  ${media.greaterThan("large")`
+    display: flex;
+    justify-content: space-between;
+  `}
 `
 
 const LogoContainer = styled.div`
@@ -19,6 +25,12 @@ const LogoContainer = styled.div`
       fill: #ccc;
     }
   }
+
+  ${media.greaterThan("large")`
+    order: 2;
+    margin-top: 16px;
+    margin-right: 32px;
+  `}
 `
 
 const Footer = () => {

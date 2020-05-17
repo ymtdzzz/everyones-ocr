@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const HeaderWrapper = styled.div`
   height: 75px;
@@ -8,6 +9,10 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+
+  ${media.lessThan("small")`
+    display: none;
+  `}
 `
 
 const LeftWrapper = styled.div`

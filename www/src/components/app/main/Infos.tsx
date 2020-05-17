@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const Wrapper = styled.div`
+  text-align: center;
+
+  ${media.greaterThan("medium")`
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  `}
 `
 
 const InfoContainer = styled.div`
-  text-align: center;
 `
 
 const Title = styled.p`
@@ -27,6 +34,16 @@ const Infos = () => {
         <Title>About this service</Title>
         <Body>
           <p>About this service........</p>
+        </Body>
+      </InfoContainer>
+      <InfoContainer>
+        <Title></Title>
+        <Body>
+        </Body>
+      </InfoContainer>
+      <InfoContainer>
+        <Title></Title>
+        <Body>
         </Body>
       </InfoContainer>
     </Wrapper>

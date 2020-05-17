@@ -1,7 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  ${media.greaterThan("large")`
+    display: flex;
+    flex-basis: 100%;
+  `}
+`
 
 const DescriptionContainer = styled.p`
   color: white;
@@ -15,6 +21,11 @@ const DescriptionContainer = styled.p`
       color: #ccc;
     }
   }
+
+  ${media.greaterThan("large")`
+    margin-left: 60px;
+    text-align: left;
+  `}
 `
 
 const Title = styled.p`
