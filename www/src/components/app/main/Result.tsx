@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { OCRResult } from '../../../interfaces/types'
+import NotificationSystem, { System } from 'react-notification-system'
 
 import ClipboardSvg from '../../../assets/images/clipboard-regular.svg'
 
 const ResultWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  min-width: 90%;
+  height: 33vh;
   text-align: center;
+  margin: 0 5%;
+
+  ${media.greaterThan("small")`
+    min-width: 0;
+    width: 40%;
+  `}
+
+  ${media.greaterThan("large")`
+    width: 30%;
+    margin: 0 1.66%;
+  `}
 `
 
 const ImageContainer = styled.div`
   margin-bottom: 0.625rem;
-  height: 66.6%;
+  height: 50%;
   img {
     max-width: 100%;
     max-height: 100%;
@@ -26,7 +39,8 @@ const TextArea = styled.div`
   border-radius: 3px;
   padding: 0.4375rem;
   position: relative;
-  height: 33.3%;
+  height: 30%;
+  overflow: auto;
   svg {
     height: 20px;
     width: 20px;
@@ -36,13 +50,42 @@ const TextArea = styled.div`
   }
 `
 
-interface ResultProps {
+export interface ResultProps {
   result: OCRResult
 }
 
 const Result: React.FC<ResultProps> = ({
   result
 }) => {
+  const notificationSystem = useRef(null)
+
+  const style: NotificationSystem.Style = {
+    NotificationItem: {
+      info: {
+        backgroundColor: '#2699FB',
+        border: 'none',
+        color: 'white',
+        borderRadius: '5px'
+      }
+    }
+  }
+
+  const addNotification = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    let notification: NotificationSystem.System;
+    if (notificationSystem.current !== null) {
+      notification = notificationSystem.current!;
+      if (notification !== null) {
+        notification.addNotification({
+          message: 'Copied!',
+          level: 'info',
+          position: 'br',
+          dismissible: false,
+        });
+      }
+    }
+  };
+
   return (
     <ResultWrapper>
       <ImageContainer>
@@ -50,7 +93,8 @@ const Result: React.FC<ResultProps> = ({
       </ImageContainer>
       <TextArea>
         {result.result}
-        <ClipboardSvg />
+        <ClipboardSvg onClick={addNotification} />
+        <NotificationSystem ref={notificationSystem} style={style} />
       </TextArea>
     </ResultWrapper>
   )

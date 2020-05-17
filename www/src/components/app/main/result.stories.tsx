@@ -12,8 +12,6 @@ const result: OCRResult = {
 }
 
 const Wrap = styled.div`
-  width: 400px;
-  height: 400px;
   margin: 0 auto;
 `
 
