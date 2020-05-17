@@ -18,11 +18,14 @@ const Wrap = styled.div`
 `
 
 const resultListGen = (count: number) => {
+
   let list: OCRResult[] = [];
-  for (let _ in [...Array(count)]) {
+  for (let i in [...Array(count)]) {
+    const isLoading = parseInt(i) % 2 == 0
     list.push({
       filepath,
-      result
+      result,
+      isLoading
     })
   }
   return list

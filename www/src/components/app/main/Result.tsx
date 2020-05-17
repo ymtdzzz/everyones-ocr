@@ -5,13 +5,16 @@ import { OCRResult } from '../../../interfaces/types'
 import NotificationSystem from 'react-notification-system'
 import copy from 'copy-to-clipboard'
 
+import CheckBox from '../../shared/CheckBox'
 import ClipboardSvg from '../../../assets/images/clipboard-regular.svg'
+import Loader from '../../shared/Loader'
 
 const ResultWrapper = styled.div`
   min-width: 90%;
   height: 33vh;
   text-align: center;
   margin: 0 5%;
+  position: relative;
 
   ${media.greaterThan("small")`
     min-width: 0;
@@ -33,7 +36,7 @@ const ImageContainer = styled.div`
   }
 `
 
-const TextArea = styled.div`
+const TextArea = styled.div<{loading: boolean}>`
   text-align: left;
   font-size: 0.6875rem;
   border: 1px solid #707070;
@@ -42,6 +45,7 @@ const TextArea = styled.div`
   position: relative;
   height: 30%;
   overflow: auto;
+
   svg {
     height: 20px;
     width: 20px;
@@ -52,6 +56,18 @@ const TextArea = styled.div`
       color: #666;
     }
   }
+
+  ${props => props.loading ? `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  ` : ``}
+`
+
+const CheckBoxWrap = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
 `
 
 export interface ResultProps {
@@ -94,11 +110,16 @@ const Result: React.FC<ResultProps> = ({
 
   return (
     <ResultWrapper>
+      <CheckBoxWrap><CheckBox /></CheckBoxWrap>
       <ImageContainer>
         <img src={result.filepath} />
       </ImageContainer>
-      <TextArea>
-        {result.result}
+      <TextArea loading={result.isLoading}>
+        {result.isLoading ? (
+          <Loader />
+        ) : (
+          result.result
+        )}
         <ClipboardSvg onClick={addNotification} />
         <NotificationSystem ref={notificationSystem} style={style} />
       </TextArea>
