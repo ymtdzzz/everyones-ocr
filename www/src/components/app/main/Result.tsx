@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { OCRResult } from '../../../interfaces/types'
-import NotificationSystem, { System } from 'react-notification-system'
+import NotificationSystem from 'react-notification-system'
+import copy from 'copy-to-clipboard'
 
 import ClipboardSvg from '../../../assets/images/clipboard-regular.svg'
 
@@ -47,6 +48,9 @@ const TextArea = styled.div`
     position: absolute;
     bottom: 0.4375rem;
     right: 0.4375rem;
+    &:hover {
+      color: #666;
+    }
   }
 `
 
@@ -58,6 +62,7 @@ const Result: React.FC<ResultProps> = ({
   result
 }) => {
   const notificationSystem = useRef(null)
+  const [isSelected, setIsSelected] = useState(false);
 
   const style: NotificationSystem.Style = {
     NotificationItem: {
@@ -71,7 +76,8 @@ const Result: React.FC<ResultProps> = ({
   }
 
   const addNotification = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.preventDefault();
+    event.preventDefault()
+    copy(result.result)
     let notification: NotificationSystem.System;
     if (notificationSystem.current !== null) {
       notification = notificationSystem.current!;
