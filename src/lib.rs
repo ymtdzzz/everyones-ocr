@@ -14,6 +14,6 @@ extern {
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Alert from WebAssembly");
+pub fn greet(s: &str) {
+    alert(s);
 }
