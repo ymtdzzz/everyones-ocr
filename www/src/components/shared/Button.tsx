@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const ButtonWrapper = styled.div`
   min-width: 126px;
@@ -12,33 +12,30 @@ const ButtonWrapper = styled.div`
   font-weight: bold;
   letter-spacing: 0;
   color: white;
-  background-color: #2699FB;
+  background-color: #2699fb;
   border-radius: 0.8125rem;
   &:hover {
     cursor: pointer;
-    background-color: #36A9FF;
+    background-color: #36a9ff;
   }
 
-  ${props => props.theme == "danger" ? `
+  ${props =>
+    props.theme === "danger"
+      ? `
     background-color: #FC4C4C;
     &:hover {
       background-color: #FF5C5C;
     }
-  `:``}
-`
-
+  `
+      : ""}
+`;
 interface ButtonProps {
-  label: string
-  theme: 'primary' | 'danger'
+  label: string;
+  theme: "primary" | "danger";
 }
 
-const Button: React.FC<ButtonProps> = ({
-  label,
-  theme
-}): JSX.Element => {
-  return (
-    <ButtonWrapper theme={theme}>{label}</ButtonWrapper>
-  )
-}
+const Button: React.FC<ButtonProps> = ({ label, theme }): JSX.Element => {
+  return <ButtonWrapper theme={theme}>{label}</ButtonWrapper>;
+};
 
-export default Button
+export default Button;

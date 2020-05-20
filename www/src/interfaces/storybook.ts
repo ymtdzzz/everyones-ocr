@@ -1,4 +1,4 @@
 export enum StoryTypes {
-  Shared = 'Shared',
-  App = 'App',
+  Shared = "Shared",
+  App = "App"
 }

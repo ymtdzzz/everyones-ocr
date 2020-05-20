@@ -1,5 +1,5 @@
 export interface OCRResult {
-  filepath: string,
-  result: string,
-  isLoading: boolean,
+  filepath: string;
+  result: string;
+  isLoading: boolean;
 }

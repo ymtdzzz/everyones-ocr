@@ -1,12 +1,11 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from "react";
+import { storiesOf } from "@storybook/react";
 
-import { StoryTypes } from '../../interfaces/storybook'
-import CheckBox from './CheckBox'
+import { StoryTypes } from "../../interfaces/storybook";
+import CheckBox from "./CheckBox";
 
-storiesOf(StoryTypes.Shared, module)
-  .add("CheckBox", () => (
-    <div>
-      <CheckBox />
-    </div>
-  ))
+storiesOf(StoryTypes.Shared, module).add("CheckBox", () => (
+  <div>
+    <CheckBox />
+  </div>
+));

@@ -1,12 +1,11 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from "react";
+import { storiesOf } from "@storybook/react";
 
-import { StoryTypes } from '../../../interfaces/storybook'
-import Title from './index'
+import { StoryTypes } from "../../../interfaces/storybook";
+import Title from "./index";
 
-storiesOf(StoryTypes.App, module)
-  .add("Title", () => (
-    <div>
-      <Title />
-    </div>
-  ))
+storiesOf(StoryTypes.App, module).add("Title", () => (
+  <div>
+    <Title />
+  </div>
+));

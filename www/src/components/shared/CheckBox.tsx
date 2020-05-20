@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import CheckIcon from '../../assets/images/check-solid.svg'
-import media from 'styled-media-query'
+import React, { useState } from "react";
+import styled from "styled-components";
+import media from "styled-media-query";
+import CheckIcon from "../../assets/images/check-solid.svg";
 
 const Check = styled.div<{ checked: boolean }>`
   width: 30px;
@@ -14,12 +14,15 @@ const Check = styled.div<{ checked: boolean }>`
     color: white;
   }
 
-  ${props => props.checked ? `
+  ${props =>
+    props.checked
+      ? `
     background-color: #2699FB;
     svg {
       display: block;
     }
-  ` : `
+  `
+      : `
     border: 3px solid #7FC4FD;
     background-color: white;
     svg {
@@ -27,25 +30,25 @@ const Check = styled.div<{ checked: boolean }>`
     }
   `}
 
-  ${media.greaterThan('large')`
+  ${media.greaterThan("large")`
     width: 43px;
     height: 43px;
     padding: 12px
   `}
-`
+`;
 
 const CheckBox = () => {
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   const toggleChecked = () => {
     setIsChecked(!isChecked);
-  }
+  };
 
   return (
     <Check checked={isChecked} onClick={toggleChecked}>
       <CheckIcon />
     </Check>
-  )
-}
+  );
+};
 
-export default CheckBox
+export default CheckBox;
