@@ -73,5 +73,6 @@ pub fn ocr(input: InputFile) {
         input.file_type.get_image_format(),
     );
     log!("{:?}", input);
-    alert(image.unwrap().width().to_string().as_str());
+    // alert(image.unwrap().width().to_string().as_str());
+    alert(&image.unwrap().to_bytes().len().to_string())
 }
